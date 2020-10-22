@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package brackets.proto;
+
+option go_package = "github.com/yaBliznyk/brackets/proto";
+
+import "google/api/annotations.proto";
+
+// Service helpdesk
+service Brackets {
+    // Validate string
+    rpc Validate (ValidateRequest) returns (ValidateResponse) {
+        option (google.api.http) = {
+          post: "/v1/validate"
+          body: "*"
+        };
+    }
+    // Fix string
+    rpc Fix (FixRequest) returns (FixResponse) {
+        option (google.api.http) = {
+          post: "/v1/fix"
+          body: "*"
+        };
+    }
+}
+
+message ValidateRequest {
+    string str = 1;
+}
+
+message ValidateResponse {
+    bool is_valid = 1;
+}
+
+message FixRequest {
+    string str = 1;
+}
+
+message FixResponse {
+    string result = 1;
+}
