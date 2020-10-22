@@ -6,7 +6,7 @@ option go_package = "github.com/yaBliznyk/brackets/proto";
 
 import "google/api/annotations.proto";
 
-// Service helpdesk
+// Service Brackets
 service Brackets {
     // Validate string
     rpc Validate (ValidateRequest) returns (ValidateResponse) {
